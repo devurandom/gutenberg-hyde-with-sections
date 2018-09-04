@@ -60,6 +60,9 @@
 
         <div class="content container">
             {% block content %}
+              <h1>{{ section.title }}</h1>
+              {{ section.content | safe }}
+              {% if section.pages %}
                 <div class="posts">
                     {% for page in section.pages | reverse %}
                       <div class="post">
@@ -73,6 +76,7 @@
                       </div>
                     {% endfor %}
                 </div>
+              {% endif %}
             {% endblock content %}
         </div>
 
